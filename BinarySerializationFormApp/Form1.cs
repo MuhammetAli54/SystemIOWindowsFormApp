@@ -58,7 +58,11 @@ namespace BinarySerializationFormApp
             saveFileDialog1.Title = "Kayıt İşlemi";
             saveFileDialog1.Filter = "(*.jpg) | *.jpg";
             saveFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            saveFileDialog1.FileName = Guid.NewGuid().ToString();
+            //Guid oluşturma
+            string dosyaAdiGuid = Guid.NewGuid().ToString();
+            //oluşturulan Guid'in tirelerini sildik
+            dosyaAdiGuid = dosyaAdiGuid.Replace("-", "");
+            saveFileDialog1.FileName = dosyaAdiGuid;
 
             if (saveFileDialog1.ShowDialog()==DialogResult.OK)
             {
